@@ -1,4 +1,4 @@
-import {from, interval, Observable, of, Subscription, timer} from "rxjs";
+import {catchError, filter, from, interval, map, Observable, of, Subscription, timer} from "rxjs";
 
 const chapter = process.argv[2];
 
@@ -88,6 +88,16 @@ switch (chapter) {
         // timerオペレータの使用例
         const observableTimer = timer(3000); // 3秒後に発行
         observableTimer.subscribe(value => console.log(`timer: ${value}`));
+        break;
+    case '3-2': // パイプ可能オペレータ
+        const source = of(1, 2, 3, 4, 5);
+        const result = source.pipe(
+            filter(x => x % 2 === 0), // 偶数のみをフィルタリング
+            map(x => x * 10),         // 値を10倍に変換
+            catchError(err => of('エラー発生: ' + err)) // エラー処理
+        );
+
+        result.subscribe(value => console.log(value));
         break;
     default:
         console.log('無効なチャプターです');

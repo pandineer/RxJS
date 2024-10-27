@@ -42,3 +42,9 @@ interval: 4
 interval: 5
 ...
 ```
+
+```bash
+$ node dist/main.js 3-2
+20
+40
+```
