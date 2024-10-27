@@ -7,5 +7,5 @@ https://zenn.dev/hisano/books/479d94f5df3c9e
 ```bash
 npm i
 npx webpack
-node dist/main.js
+node dist/main.js <chapter>
 ```
