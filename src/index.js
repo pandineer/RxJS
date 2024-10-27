@@ -1,4 +1,17 @@
-import {catchError, filter, from, interval, map, Observable, of, Subscription, timer} from "rxjs";
+import {
+    catchError,
+    filter,
+    from,
+    interval,
+    map,
+    Observable,
+    of,
+    scan,
+    share,
+    Subscription,
+    takeWhile,
+    timer
+} from "rxjs";
 
 const chapter = process.argv[2];
 
@@ -90,8 +103,8 @@ switch (chapter) {
         observableTimer.subscribe(value => console.log(`timer: ${value}`));
         break;
     case '3-2': // パイプ可能オペレータ
-        const source = of(1, 2, 3, 4, 5);
-        const result = source.pipe(
+        const source32 = of(1, 2, 3, 4, 5);
+        const result = source32.pipe(
             filter(x => x % 2 === 0), // 偶数のみをフィルタリング
             map(x => x * 10),         // 値を10倍に変換
             catchError(err => of('エラー発生: ' + err)) // エラー処理
@@ -99,6 +112,24 @@ switch (chapter) {
 
         result.subscribe(value => console.log(value));
         break;
+    case '3-3': // その他のオペレータ関数
+        // インターバルオブザーバブル
+        const source33 = interval(1000).pipe(share());
+
+        // takeWhileオペレータの使用
+        const takeWhileExample = source33.pipe(
+            takeWhile(value => value < 5)
+        );
+
+        // scanオペレータの使用
+        const scanExample = source33.pipe(
+            scan((acc, value) => acc + value, 0)
+        );
+
+        takeWhileExample.subscribe(value => console.log(`takeWhile: ${value}`));
+        scanExample.subscribe(value => console.log(`scan: ${value}`));
+        break;
+
     default:
         console.log('無効なチャプターです');
         break;

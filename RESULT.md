@@ -48,3 +48,20 @@ $ node dist/main.js 3-2
 20
 40
 ```
+
+```bash
+$ node dist/main.js 3-3
+takeWhile: 0
+scan: 0
+takeWhile: 1
+scan: 1
+takeWhile: 2
+scan: 3
+takeWhile: 3
+scan: 6
+takeWhile: 4
+scan: 10
+scan: 15
+scan: 21
+...
+```
