@@ -1,4 +1,4 @@
-import {Observable, Subscription} from "rxjs";
+import {from, interval, Observable, of, Subscription, timer} from "rxjs";
 
 const chapter = process.argv[2];
 
@@ -71,6 +71,23 @@ switch (chapter) {
 
         // 必要に応じてすべてのサブスクリプションを一括で解除
         allSubscriptions.unsubscribe();
+        break;
+    case '3-1': // 主要な作成オペレータ
+        // ofオペレータの使用例
+        const observableOf = of(1, 2, 3);
+        observableOf.subscribe(value => console.log(`of: ${value}`));
+
+        // fromオペレータの使用例
+        const observableFrom = from([1, 2, 3]);
+        observableFrom.subscribe(value => console.log(`from: ${value}`));
+
+        // intervalオペレータの使用例
+        const observableInterval = interval(1000); // 1秒間隔
+        observableInterval.subscribe(value => console.log(`interval: ${value}`));
+
+        // timerオペレータの使用例
+        const observableTimer = timer(3000); // 3秒後に発行
+        observableTimer.subscribe(value => console.log(`timer: ${value}`));
         break;
     default:
         console.log('無効なチャプターです');
