@@ -3,7 +3,8 @@ import {Observable, Subscription} from "rxjs";
 const chapter = process.argv[2];
 
 switch (chapter) {
-    case '2-1':
+    // chapter 2 オブザーバブルの基本
+    case '2-1': // オブザーバブルの作成
         // オブザーバブルの作成
         const simpleObservable = new Observable(subscriber => {
             // 値の発行
@@ -25,7 +26,7 @@ switch (chapter) {
             }
         });
         break;
-    case '2-2':
+    case '2-2': // オブザーバの役割と実装
         // オブザーバブルの作成
         const observable2 = new Observable(subscriber => {
             subscriber.next('Hello');
@@ -43,7 +44,7 @@ switch (chapter) {
         // オブザーバブルの購読
         observable2.subscribe(observer);
         break;
-    case '2-3':
+    case '2-3': // サブスクリプションの管理
         // オブザーバブルの作成
         const observable3 = new Observable(subscriber => {
             subscriber.next('Hello');
@@ -56,7 +57,7 @@ switch (chapter) {
         // サブスクリプションの解除
         subscription.unsubscribe();
         break;
-    case '2-4':
+    case '2-4': // 複数のサブスクリプションの管理
         // 複数のオブザーバブルの定義
         const observable41 = new Observable(subscriber => subscriber.next('Observable 41'));
         const observable42 = new Observable(subscriber => subscriber.next('Observable 42'));
