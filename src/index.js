@@ -1,10 +1,12 @@
 import {
+    asyncScheduler,
     catchError,
     filter,
     from,
     interval,
     map,
     Observable,
+    observeOn,
     of,
     scan,
     share,
@@ -129,7 +131,16 @@ switch (chapter) {
         takeWhileExample.subscribe(value => console.log(`takeWhile: ${value}`));
         scanExample.subscribe(value => console.log(`scan: ${value}`));
         break;
+    case '4-1': // スケジューラの種類と役割
+        // 非同期スケジューラを使用
+        const observableWithAsyncScheduler = new Observable(subscriber => {
+            subscriber.next(1);
+            subscriber.next(2);
+            subscriber.complete();
+        }).pipe(observeOn(asyncScheduler));
 
+        observableWithAsyncScheduler.subscribe(value => console.log(value));
+        break;
     default:
         console.log('無効なチャプターです');
         break;
