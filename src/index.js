@@ -152,6 +152,13 @@ switch (chapter) {
         observable421.subscribe(value => console.log(`同期的な値: ${value}`));
         console.log('購読後');
         break;
+    case '4-2-2': // 同期と非同期処理の制御 - 非同期処理
+        const asyncObservable = of(1, 2, 3).pipe(observeOn(asyncScheduler));
+
+        console.log('購読前');
+        asyncObservable.subscribe(value => console.log(`非同期的な値: ${value}`));
+        console.log('購読後');
+        break;
     default:
         console.log('無効なチャプターです');
         break;
