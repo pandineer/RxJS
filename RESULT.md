@@ -71,3 +71,11 @@ $ node dist/main.js 4-1
 1
 2
 ```
+
+```bash
+$ node dist/main.js 4-2-1
+購読前
+同期的な値: 1
+同期的な値: 2
+購読後
+```

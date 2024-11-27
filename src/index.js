@@ -141,6 +141,17 @@ switch (chapter) {
 
         observableWithAsyncScheduler.subscribe(value => console.log(value));
         break;
+    case '4-2-1': // 同期と非同期処理の制御 - 同期処理
+        const observable421 = new Observable(subscriber => {
+            subscriber.next(1);
+            subscriber.next(2);
+            subscriber.complete();
+        });
+
+        console.log('購読前');
+        observable421.subscribe(value => console.log(`同期的な値: ${value}`));
+        console.log('購読後');
+        break;
     default:
         console.log('無効なチャプターです');
         break;
