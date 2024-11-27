@@ -65,3 +65,9 @@ scan: 15
 scan: 21
 ...
 ```
+
+```baseh
+$ node dist/main.js 4-1
+1
+2
+```
