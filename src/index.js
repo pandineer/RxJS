@@ -43,7 +43,7 @@ switch (chapter) {
         break;
     case '2-2': // オブザーバの役割と実装
         // オブザーバブルの作成
-        const observable2 = new Observable(subscriber => {
+        const observable22 = new Observable(subscriber => {
             subscriber.next('Hello');
             subscriber.next('World');
             subscriber.complete();
@@ -57,32 +57,32 @@ switch (chapter) {
         };
 
         // オブザーバブルの購読
-        observable2.subscribe(observer);
+        observable22.subscribe(observer);
         break;
     case '2-3': // サブスクリプションの管理
         // オブザーバブルの作成
-        const observable3 = new Observable(subscriber => {
+        const observable23 = new Observable(subscriber => {
             subscriber.next('Hello');
             subscriber.next('World');
         });
 
         // サブスクリプションの開始
-        const subscription = observable3.subscribe(value => console.log(value));
+        const subscription = observable23.subscribe(value => console.log(value));
 
         // サブスクリプションの解除
         subscription.unsubscribe();
         break;
     case '2-4': // 複数のサブスクリプションの管理
         // 複数のオブザーバブルの定義
-        const observable41 = new Observable(subscriber => subscriber.next('Observable 41'));
-        const observable42 = new Observable(subscriber => subscriber.next('Observable 42'));
+        const observable241 = new Observable(subscriber => subscriber.next('Observable 241'));
+        const observable242 = new Observable(subscriber => subscriber.next('Observable 242'));
 
         // サブスクリプションオブジェクトの作成
         const allSubscriptions = new Subscription();
 
         // オブザーバブルを購読し、サブスクリプションオブジェクトに追加
-        allSubscriptions.add(observable41.subscribe(value => console.log(value)));
-        allSubscriptions.add(observable42.subscribe(value => console.log(value)));
+        allSubscriptions.add(observable241.subscribe(value => console.log(value)));
+        allSubscriptions.add(observable242.subscribe(value => console.log(value)));
 
         // 必要に応じてすべてのサブスクリプションを一括で解除
         allSubscriptions.unsubscribe();

@@ -21,8 +21,8 @@ World
 
 ```bash
 $ node dist/main.js 2-4
-Observable 41
-Observable 42
+Observable 241
+Observable 242
 ```
 
 ```bash
