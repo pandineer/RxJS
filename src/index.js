@@ -159,6 +159,18 @@ switch (chapter) {
         asyncObservable.subscribe(value => console.log(`非同期的な値: ${value}`));
         console.log('購読後');
         break;
+    case '5': // RxJSパターンとベストプラクティス：コードの再利用とモジュラリティ
+        // カスタムオペレータの定義
+        const doubleEvenNumbers = source => source.pipe(
+            filter(value => value % 2 === 0),
+            map(value => value * 2)
+        );
+
+        // オブザーバブルの作成とカスタムオペレータの適用
+        const numbers = of(1, 2, 3, 4, 5).pipe(doubleEvenNumbers);
+
+        numbers.subscribe(value => console.log(value));
+        break;
     default:
         console.log('無効なチャプターです');
         break;

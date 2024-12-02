@@ -88,3 +88,9 @@ $ node dist/main.js 4-2-2
 非同期的な値: 2
 非同期的な値: 3
 ```
+
+```bash
+$ node dist/main.js 5
+4
+8
+```
