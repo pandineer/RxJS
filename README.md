@@ -10,6 +10,13 @@ npx webpack
 node dist/main.js <chapter>
 ```
 
+# README.md
+このファイル
+サンプルコードの実行方法や、自分向けのまとめメモを記載している
+
+# RESULT.md
+サンプルコードの実行結果を載せている
+
 # memo
 
 * Chapter 01 - RxJSの概要
